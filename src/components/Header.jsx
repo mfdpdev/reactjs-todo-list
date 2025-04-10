@@ -3,13 +3,14 @@ import { days, getSuffix, monthNames } from "../utils/utils";
 function Header(){
   const current = new Date();
   const suffix = getSuffix(current);
+
   return (
     <>
       <div className="w-full bg-white shadow-md rounded-xl p-2 flex flex-col justify-between">
         <div className="w-full h-1/2 bg-white rounded-xl p-2 flex justify-between">
           <div className="">
             <h1 className="text-2xl sm:text-3xl text-red-400 mb-2" ><strong>{days[current.getDay()]},</strong> {current.getDate()}{suffix}</h1>
-            <h3 className="text-slate-500 text-base sm:text-lg" >{monthNames[current.getMonth()]}</h3>
+            <h3 className="text-slate-500 text-base sm:text-xl" >{monthNames[current.getMonth()]}</h3>
           </div>
           <div className="">
             <h3 className="text-slate-500 text-sm sm:text-base"><strong>12</strong> Tasks</h3>
