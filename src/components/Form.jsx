@@ -41,8 +41,14 @@ export default function Form(){
           <div>
             <h1 className="text-base font-bold mt-4">Category</h1>
             <div className="w-full h-16 font-bold flex gap-2 bg-slate-50 rounded-lg my-2 p-2 hover:cursor-pointer">
-              <div onClick={() => setCategory("personal")} className={`w-full h-full ${category === "personal" ? "bg-red-500 text-white" : "bg-none text-slate-500"} rounded-lg grid place-items-center`}>Personal</div>
-              <div onClick={() => setCategory("team")} className={`w-full h-full ${category === "team" ? "bg-red-500 text-white" : "bg-none text-slate-500"} rounded-lg grid place-items-center`}>Team</div>
+              <div onClick={() => setCategory("personal")} className={`w-full h-full ${category === "personal" ? "bg-red-500 text-white" : "bg-none text-slate-500"} rounded-lg flex items-center gap-4 justify-center`}>
+                <IoMdPerson />
+                Personal
+              </div>
+              <div onClick={() => setCategory("team")} className={`w-full h-full ${category === "team" ? "bg-red-500 text-white" : "bg-none text-slate-500"} rounded-lg flex items-center gap-4 justify-center`}>
+                <MdGroups className="text-2xl" />
+                Team
+              </div>
             </div>
           </div>
           <div className="">
