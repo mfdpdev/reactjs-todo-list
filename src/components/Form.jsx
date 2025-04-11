@@ -3,7 +3,7 @@ import { IoMdPerson } from "react-icons/io";
 import { MdGroups } from "react-icons/md";
 import { useModal } from "../contexts/ModalContext";
 import { useList } from "../contexts/ListContext";
-import { clearForm, createList } from "../utils/FormUtils";
+import { clearForm, createList, editList } from "../utils/FormUtils";
 
 export default function Form(){
   const { listState, listDispatch } = useList();
@@ -14,11 +14,12 @@ export default function Form(){
   const [description, setDescription] = useState("");
 
   useEffect(() => {
-    console.log(modalState)
     if(modalState.form === "EDIT"){
-      setTitle(modalState.payload.title);
-      setCategory(modalState.payload.category);
-      setDescription(modalState.description);
+      setTitle(modalState.list.title);
+      setCategory(modalState.list.category);
+      setDescription(modalState.list.description);
+    }else{
+      clearForm(setTitle, setCategory, setDescription);
     }
   }, [modalState]);
 
@@ -61,15 +62,16 @@ export default function Form(){
           </div>
           <div className="flex gap-2">
             <button onClick={() => {
-              modalDispatch({ type: "CLOSE_FORM", form: "CREATE", payload: {} });
+              modalDispatch({ type: "CLOSE_FORM", form: "CREATE" });
               clearForm(setTitle, setCategory, setDescription);
             }} className="w-full bg-white hover:bg-red-500 hover:text-white text-red-500 border border-red-500 font-bold p-3 rounded-xl">
               Close
             </button>
             <button onClick={() => {
               if(modalState.form == "CREATE"){
-                createList(listDispatch,{ id: listState.length + 1, title, category, description });
+                createList(listDispatch,{ title, category, description, status: false });
               }else{
+                editList(listDispatch, modalState.list, {...modalState.list, title, category, description} )
               }
 
               modalDispatch({ type: "CLOSE_FORM" });
@@ -81,7 +83,7 @@ export default function Form(){
         </div>
       </div>
       <div onClick={() => {
-        modalDispatch({ type: "CLOSE_FORM", form: "CREATE", payload: {} })
+        modalDispatch({ type: "CLOSE_FORM", form: "CREATE" })
         clearForm(setTitle, setCategory, setDescription);
       }} className={`${modalState.modal ? 'visible opacity-100' : 'invisible opacity-0'} duration-500 w-full h-full bg-slate-900/50 absolute left-0 bottom-0`}></div>
     </>

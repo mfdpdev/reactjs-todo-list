@@ -24,9 +24,9 @@ export default function ModalProvider({ children }){
       case 'OPEN_FORM':
         const temp = { ...state, modal: true };
         if(action.form === "CREATE"){
-          return { ...temp, form: "CREATE" };
+          return { ...temp, form: "CREATE", list: {} };
         }else{
-          return { ...temp, form: "EDIT", payload: action.payload };
+          return { ...temp, form: "EDIT", list: action.list };
         }
       default:
         return state;

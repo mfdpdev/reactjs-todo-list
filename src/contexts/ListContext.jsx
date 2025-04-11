@@ -20,8 +20,15 @@ export default function ListProvider({ children }){
         return [...state, action.payload];
       case 'DELETE':
         return state.filter( e => e.title !== action.title);
-      case 'UPDATE':
-        return [...state, action.payload];
+      case 'EDIT':
+        const result = state.map( e => {
+          if(e.title === action.list.title){
+            return action.payload;
+          }
+
+          return e;
+        });
+        return result;
       default:
         return state;
     }
