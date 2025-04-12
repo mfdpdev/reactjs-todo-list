@@ -3,3 +3,9 @@
 body {
   background-color: #f5f5f4;
 }
+
+.bg-flat {
+  background-image: url('/src/assets/images/bg-flat.jpg'); /* Adjust the path as needed */
+  background-size: cover;
+  background-position: center;
+}
