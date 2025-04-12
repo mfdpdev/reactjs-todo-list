@@ -19,10 +19,10 @@ export default function ListProvider({ children }){
         }
         return [...state, action.payload];
       case 'DELETE':
-        return state.filter( e => e.title !== action.title);
+        return state.filter( e => e.id !== action.id);
       case 'EDIT':
         const result = state.map( e => {
-          if(e.title === action.list.title){
+          if(e.id === action.id){
             return action.payload;
           }
 

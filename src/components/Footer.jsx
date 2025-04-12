@@ -10,7 +10,7 @@ function Footer(){
       <div>
         <button onClick={() => {
           modalDispatch({ type: "OPEN_FORM", form: "CREATE" });
-        }} className="w-full bg-red-500 hover:bg-red-600 text-white font-bold p-3 rounded-xl">
+        }} className="w-full mt-2 bg-red-500 hover:bg-red-600 text-white font-bold p-3 rounded-xl">
           + Create New
         </button>
         <Form />

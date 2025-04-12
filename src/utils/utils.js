@@ -10,5 +10,10 @@ export const getSuffix = (date) => {
   return suffixes[lastDigit] || "th";
 };
 
+export const createId = () => {
+  const uniqueId = Date.now();
+  return uniqueId;
+}
+
 export const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 export const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];

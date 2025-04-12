@@ -4,9 +4,10 @@ import { MdGroups } from "react-icons/md";
 import { useModal } from "../contexts/ModalContext";
 import { useList } from "../contexts/ListContext";
 import { clearForm, createList, editList } from "../utils/FormUtils";
+import { createId } from "../utils/utils";
 
 export default function Form(){
-  const { listState, listDispatch } = useList();
+  const { listDispatch } = useList();
   const { modalState, modalDispatch } = useModal();
 
   const [title, setTitle] = useState("");
@@ -75,9 +76,9 @@ export default function Form(){
             </button>
             <button onClick={() => {
               if(modalState.form == "CREATE"){
-                createList(listDispatch,{ title, category, description, status: false });
+                createList(listDispatch, { id: createId(), title, category, description, status: false });
               }else{
-                editList(listDispatch, modalState.list, {...modalState.list, title, category, description} )
+                editList(listDispatch, modalState.list.id, {...modalState.list, title, category, description} )
               }
 
               modalDispatch({ type: "CLOSE_FORM" });
