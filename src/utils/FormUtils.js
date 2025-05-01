@@ -6,7 +6,7 @@ export const deleteList = (dispatch, id) => {
   dispatch({ type: "DELETE", id});
 }
 
-export const editList = (dispatch, id, payload) => {
+export const editList = (dispatch, { id }, payload) => {
   dispatch({ type: "EDIT", id, payload });
 }
 

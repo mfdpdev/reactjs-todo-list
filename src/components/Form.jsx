@@ -76,7 +76,7 @@ export default function Form(){
             </button>
             <button onClick={() => {
               if(modalState.form == "CREATE"){
-                createList(listDispatch, { id: createId(), title, category, description, status: false });
+                createList(listDispatch, { id: createId(), title, category, description, status: false, date: new Date().toLocaleDateString() });
               }else{
                 editList(listDispatch, modalState.list.id, {...modalState.list, title, category, description} )
               }

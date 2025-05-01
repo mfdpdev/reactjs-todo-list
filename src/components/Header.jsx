@@ -1,5 +1,5 @@
 import { useList } from "../contexts/ListContext";
-import { days, monthNames } from "../utils/utils";
+import { days, getOrdinal, monthNames } from "../utils/utils";
 
 function Header(){
   const current = new Date();
@@ -10,7 +10,7 @@ function Header(){
       <div className="w-full bg-flat shadow-md rounded-xl p-2 flex flex-col justify-around">
         <div className="w-full h-1/2 bg-white/90 rounded-xl p-4 flex justify-between">
           <div className="">
-            <h1 className="text-2xl sm:text-3xl text-red-400 " ><strong>{days[current.getDay()]},</strong> {current.getDate()}</h1>
+            <h1 className="text-2xl sm:text-3xl text-red-400 " ><strong>{days[current.getDay()]},</strong> {getOrdinal(current.getDate())}</h1>
             <h3 className="text-slate-500 text-base sm:text-xl" >{monthNames[current.getMonth()]}</h3>
           </div>
           <div className="">

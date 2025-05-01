@@ -31,7 +31,7 @@ export default function ListItem({ list, even, isSelected, onClick }){
         </div>
         <div>
           <p className="text-sm sm:text-base text-slate-500">
-            12/12/2025
+            {list.date}
           </p>
         </div>
       </div>

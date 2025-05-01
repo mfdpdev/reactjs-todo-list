@@ -17,3 +17,14 @@ export const createId = () => {
 
 export const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 export const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+export function countState(state){
+  const result = state.filter( e => e.status === true);
+  return result.length;
+}
+
+export const getOrdinal = (num) => {
+    const suffixes = ["th", "st", "nd", "rd"];
+    const value = num % 100;
+    return num + (suffixes[(value - 20) % 10] || suffixes[value] || suffixes[0]);
+}

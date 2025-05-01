@@ -22,10 +22,9 @@ export default function ListProvider({ children }){
         return state.filter( e => e.id !== action.id);
       case 'EDIT':
         const result = state.map( e => {
-          if(e.id === action.id){
+          if(e.id == action.id){
             return action.payload;
           }
-
           return e;
         });
         return result;
